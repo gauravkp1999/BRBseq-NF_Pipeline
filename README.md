@@ -128,13 +128,3 @@ brbseq/
 
 - Nextflow ≥ 23.04
 - Docker, Singularity/Apptainer, **or** an existing conda environment (`--conda_env`) with `fastqc`, `star`, `pandas`, `numpy`, `multiqc` installed, plus `bioconductor-deseq2` (which brings `ggplot2`) if you'll run `--sample_meta`/`--contrasts` and/or `--gmt_file`
-
-## Why STARsolo and not BRB-seqTools?
-
-The BRB-seqTools authors themselves now mark their toolkit deprecated and
-recommend STARsolo directly - it produces similar results in one command,
-without BRB-seqTools' trimming/demultiplexing quirks (their own README warns
-against feeding their Trim output into STARsolo). This pipeline follows that
-recommendation for its primary (UMI) quantification path, and only calls out
-to BRB-seqTools optionally, for the one thing STARsolo doesn't produce: a
-non-UMI-deduplicated read-count matrix (`--extract_read_counts true`).

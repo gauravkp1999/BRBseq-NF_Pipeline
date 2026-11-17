@@ -1,6 +1,5 @@
-# gauravkp/brbseq
+# gauravkp1999/BRBseq-NF_Pipeline
 
-[![CI](https://github.com/gauravkp/brbseq/actions/workflows/ci.yml/badge.svg)](https://github.com/gauravkp/brbseq/actions/workflows/ci.yml)
 [![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A523.04.0-23aa62.svg)](https://www.nextflow.io/)
 [![run with docker](https://img.shields.io/badge/run%20with-docker-0db7ed?logo=docker)](https://www.docker.com/)
 [![run with singularity](https://img.shields.io/badge/run%20with-singularity-1d355c.svg)](https://sylabs.io/docs/)
@@ -9,7 +8,7 @@
 
 ## Introduction
 
-**gauravkp/brbseq** is a Nextflow (DSL2) pipeline for **BRB-seq** (Bulk RNA
+**gauravkp1999/BRBseq-NF_Pipeline** is a Nextflow (DSL2) pipeline for **BRB-seq** (Bulk RNA
 Barcoding and sequencing) analysis, built to nf-core pipeline conventions
 (practice exercise toward an official nf-core submission).
 
@@ -122,13 +121,7 @@ brbseq/
 │   ├── ISSUE_TEMPLATE/
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── .nf-core.yml
-├── .editorconfig
 ├── .gitignore
-├── LICENSE                       # MIT
-├── CHANGELOG.md
-├── CITATIONS.md
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
 └── run_pipeline.sh               # example SLURM submission script
 ```
 
@@ -146,21 +139,3 @@ against feeding their Trim output into STARsolo). This pipeline follows that
 recommendation for its primary (UMI) quantification path, and only calls out
 to BRB-seqTools optionally, for the one thing STARsolo doesn't produce: a
 non-UMI-deduplicated read-count matrix (`--extract_read_counts true`).
-
-## Credits
-
-Written by Gaurav Patil. See [`CITATIONS.md`](CITATIONS.md) for the tools
-and the original BRB-seq method paper.
-
-## What's still needed for a *real* nf-core submission
-
-- Open a proposal on [nf-core/proposals](https://github.com/nf-core/proposals) **before** building further
-- Add real CI test data under `assets/test_data/` (or host it on `nf-core/test-datasets`)
-- Validate the samplesheet/barcode-map formats against nf-core's `nf-schema` plugin instead of the current inline Groovy checks
-- Get `nf-core pipelines lint` fully passing
-- Decide whether `extract_read_counts`/BRB-seqTools stays, given its deprecated upstream status and runtime jar download
-- Community/core-team review
-
-## License
-
-[MIT](LICENSE)

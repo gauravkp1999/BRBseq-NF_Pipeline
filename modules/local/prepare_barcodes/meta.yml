@@ -1,0 +1,27 @@
+name: prepare_barcodes
+description: Normalize a user-supplied barcode/sample mapping file into a STARsolo whitelist and a clean barcode->sample TSV
+keywords:
+  - barcode
+  - demultiplexing
+  - custom
+tools:
+  - python:
+      description: Custom parsing script (bin/parse_barcode_map.py)
+      licence: ["MIT"]
+input:
+  - meta:
+      type: map
+      description: "Groovy Map containing run information, e.g. [id: 'run1']"
+  - barcode_map:
+      type: file
+      description: User-supplied CSV/TSV with sample name and barcode columns
+output:
+  - whitelist:
+      type: file
+      description: One barcode per line, for STARsolo --soloCBwhitelist
+  - map:
+      type: file
+      description: Normalized barcode<TAB>sample mapping, no header
+  - versions:
+      type: file
+      description: File containing software versions

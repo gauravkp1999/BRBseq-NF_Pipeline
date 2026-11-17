@@ -1,0 +1,31 @@
+name: multiqc
+description: Aggregate QC reports (FastQC, STARsolo logs) from all pipeline runs
+keywords:
+  - qc
+  - report
+  - multiqc
+tools:
+  - multiqc:
+      description: Aggregate results from bioinformatics analyses into a single report
+      homepage: https://multiqc.info/
+      licence: ["GPL-3.0-or-later"]
+input:
+  - multiqc_files:
+      type: file
+      description: All QC files to aggregate
+  - multiqc_config:
+      type: file
+      description: Optional MultiQC config file
+  - multiqc_title:
+      type: string
+      description: Optional report title
+output:
+  - report:
+      type: file
+      description: MultiQC HTML report
+  - data:
+      type: directory
+      description: MultiQC data directory
+  - versions:
+      type: file
+      description: File containing software versions

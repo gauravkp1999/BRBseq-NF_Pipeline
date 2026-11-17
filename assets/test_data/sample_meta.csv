@@ -1,0 +1,9 @@
+sample,condition,plate
+ctrl_1,ctrl,plate1
+ctrl_3,ctrl,plate1
+KD_1,KD,plate1
+KD_3,KD,plate1
+ctrl_2,ctrl,plate2
+ctrl_4,ctrl,plate2
+KD_2,KD,plate2
+KD_4,KD,plate2

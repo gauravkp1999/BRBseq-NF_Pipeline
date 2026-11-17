@@ -1,0 +1,27 @@
+name: relabel_matrix
+description: Convert a STARsolo raw gene x barcode matrix into a gene x sample TSV, using a barcode/sample map to relabel and filter columns
+keywords:
+  - counts
+  - matrix
+  - custom
+tools:
+  - pandas:
+      description: Custom Python/pandas script (bin/relabel_matrix.py); parses STARsolo's MatrixMarket output directly, no scipy dependency
+      licence: ["MIT"]
+input:
+  - meta:
+      type: map
+      description: "Groovy Map containing run information, e.g. [id: 'run1']"
+  - raw_matrix_dir:
+      type: directory
+      description: STARsolo Gene/raw directory (matrix.mtx, barcodes.tsv, features.tsv)
+  - barcode_map:
+      type: file
+      description: Normalized barcode<TAB>sample mapping (from PREPARE_BARCODES)
+output:
+  - counts:
+      type: file
+      description: Per-run gene x sample count matrix (TSV)
+  - versions:
+      type: file
+      description: File containing software versions

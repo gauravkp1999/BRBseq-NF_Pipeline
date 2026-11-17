@@ -1,0 +1,246 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://raw.githubusercontent.com/gauravkp/brbseq/master/nextflow_schema.json",
+  "title": "gauravkp/brbseq pipeline parameters",
+  "description": "BRB-seq (Bulk RNA Barcoding and sequencing) analysis pipeline: STARsolo-based demultiplexing, alignment and gene x sample quantification",
+  "type": "object",
+  "definitions": {
+    "input_output_options": {
+      "title": "Input/output options",
+      "type": "object",
+      "fa_icon": "fas fa-terminal",
+      "description": "Define where the pipeline should find input data and save output data.",
+      "required": ["input", "gtf", "outdir"],
+      "properties": {
+        "input": {
+          "type": "string",
+          "format": "file-path",
+          "mimetype": "text/csv",
+          "pattern": "^\\S+\\.csv$",
+          "schema": "assets/schema_input.json",
+          "fa_icon": "fas fa-file-csv",
+          "description": "Samplesheet listing one pooled sequencing run per row (run, fastq_1, fastq_2, barcode_map). Each run is a multiplexed BRB-seq library containing several barcoded biological samples.",
+          "help_text": "BRB-seq pools many samples into one sequencing run using in-read sample barcodes + UMIs, unlike standard RNA-seq where each row would be one biological sample. Demultiplexing happens downstream via each run's barcode_map, and sample names must be unique across the whole samplesheet."
+        },
+        "genome_fasta": {
+          "type": "string",
+          "format": "file-path",
+          "fa_icon": "fas fa-font",
+          "description": "Path to the reference genome FASTA file. Required unless --star_index is supplied."
+        },
+        "gtf": {
+          "type": "string",
+          "format": "file-path",
+          "fa_icon": "fas fa-code-branch",
+          "description": "Path to the reference annotation GTF file."
+        },
+        "star_index": {
+          "type": "string",
+          "format": "directory-path",
+          "fa_icon": "fas fa-bookmark",
+          "description": "Path to a pre-built STAR genome index directory. If provided, genome indexing is skipped."
+        },
+        "outdir": {
+          "type": "string",
+          "format": "directory-path",
+          "default": "./results",
+          "fa_icon": "fas fa-folder-open",
+          "description": "The output directory where the results will be saved."
+        },
+        "email": {
+          "type": "string",
+          "fa_icon": "fas fa-envelope",
+          "description": "Email address for completion summary.",
+          "pattern": "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$"
+        },
+        "multiqc_title": {
+          "type": "string",
+          "fa_icon": "fas fa-file-signature",
+          "description": "MultiQC report title. Printed as page header, used for filename if not otherwise specified."
+        }
+      }
+    },
+    "barcode_umi_options": {
+      "title": "BRB-seq construct geometry (Read1 = barcode + UMI)",
+      "type": "object",
+      "fa_icon": "fas fa-dna",
+      "description": "Describes where the sample barcode and UMI sit within Read1. Defaults match the published BRB-seq example construct, but oligo designs differ between protocol versions and labs - verify against your own construct before trusting results.",
+      "properties": {
+        "solo_cb_start": {
+          "type": "integer",
+          "default": 1,
+          "fa_icon": "fas fa-map-marker-alt",
+          "description": "1-based start position of the sample barcode within Read1."
+        },
+        "solo_cb_len": {
+          "type": "integer",
+          "default": 12,
+          "fa_icon": "fas fa-ruler",
+          "description": "Length (bp) of the sample barcode."
+        },
+        "solo_umi_start": {
+          "type": "integer",
+          "default": 13,
+          "fa_icon": "fas fa-map-marker-alt",
+          "description": "1-based start position of the UMI within Read1, immediately after the barcode."
+        },
+        "solo_umi_len": {
+          "type": "integer",
+          "default": 16,
+          "fa_icon": "fas fa-ruler",
+          "description": "Length (bp) of the UMI. Set to 0 if your library has no UMI."
+        },
+        "solo_cb_match_wl_type": {
+          "type": "string",
+          "default": "1MM",
+          "enum": ["Exact", "1MM", "1MM_multi"],
+          "fa_icon": "fas fa-check-double",
+          "description": "STARsolo barcode-to-whitelist matching stringency (passed through to --soloCBmatchWLtype)."
+        }
+      }
+    },
+    "pipeline_options": {
+      "title": "Pipeline options",
+      "type": "object",
+      "fa_icon": "fas fa-sliders-h",
+      "properties": {
+        "extract_read_counts": {
+          "type": "boolean",
+          "default": false,
+          "fa_icon": "fas fa-flask",
+          "description": "Also produce a raw (non-UMI-deduplicated) read-count matrix via BRB-seqTools' ExtractReadCountMatrix, alongside STARsolo's own UMI-deduplicated matrix. Off by default; treat as experimental (BRB-seqTools is marked deprecated upstream and its jar is fetched at runtime)."
+        },
+        "brbseqtools_jar_url": {
+          "type": "string",
+          "format": "file-path",
+          "fa_icon": "fas fa-link",
+          "description": "URL (or local path) of the BRB-seqTools jar, staged by Nextflow itself. Only used when --extract_read_counts is true."
+        },
+        "min_barcode_reads": {
+          "type": "integer",
+          "default": 0,
+          "fa_icon": "fas fa-filter",
+          "description": "Drop samples whose total count is below this threshold before merging across runs. 0 = no filtering."
+        }
+      }
+    },
+    "differential_expression_options": {
+      "title": "Downstream analysis: differential expression (DESeq2)",
+      "type": "object",
+      "fa_icon": "fas fa-chart-line",
+      "description": "Off unless both --sample_meta and --contrasts are provided. See docs/usage.md and assets/sample_meta_example.csv / assets/contrasts_example.csv for file formats.",
+      "properties": {
+        "sample_meta": {
+          "type": "string",
+          "format": "file-path",
+          "fa_icon": "fas fa-table",
+          "description": "CSV/TSV with a 'sample' column (matching column names in the merged count matrix) plus one column per covariate used in --contrasts."
+        },
+        "contrasts": {
+          "type": "string",
+          "format": "file-path",
+          "fa_icon": "fas fa-balance-scale",
+          "description": "CSV/TSV: id,variable,reference,target - one row per DESeq2 comparison to run. variable must be a column in --sample_meta; reference/target must be two of its values."
+        },
+        "deseq2_alpha": {
+          "type": "number",
+          "default": 0.05,
+          "fa_icon": "fas fa-percentage",
+          "description": "padj threshold for the 'significant' flag and volcano-plot highlighting."
+        },
+        "deseq2_min_count": {
+          "type": "integer",
+          "default": 10,
+          "fa_icon": "fas fa-filter",
+          "description": "Drop genes with fewer than this many total counts across all samples before fitting."
+        }
+      }
+    },
+    "enrichment_options": {
+      "title": "Downstream analysis: gene-set enrichment (ORA + GSEA)",
+      "type": "object",
+      "fa_icon": "fas fa-project-diagram",
+      "description": "Off unless --gmt_file is set (also requires --sample_meta/--contrasts, since it runs per DESeq2 contrast). Organism-agnostic: works for any species as long as the GMT's gene IDs match your GTF's gene_id namespace.",
+      "properties": {
+        "gmt_file": {
+          "type": "string",
+          "format": "file-path",
+          "fa_icon": "fas fa-layer-group",
+          "description": "Gene sets in GMT format: <set_name><TAB><description><TAB><gene1><TAB><gene2>... (e.g. exported from MSigDB)."
+        },
+        "enrichment_alpha": {
+          "type": "number",
+          "default": 0.05,
+          "fa_icon": "fas fa-percentage",
+          "description": "padj threshold defining 'significant' for over-representation analysis (ORA)."
+        },
+        "enrichment_rank_metric": {
+          "type": "string",
+          "default": "stat",
+          "enum": ["stat", "log2FoldChange"],
+          "fa_icon": "fas fa-sort-amount-down",
+          "description": "DESeq2 results column used to rank genes for GSEA."
+        },
+        "enrichment_min_set_size": {
+          "type": "integer",
+          "default": 5,
+          "fa_icon": "fas fa-compress",
+          "description": "Drop gene sets smaller than this after restricting to the tested gene universe."
+        },
+        "enrichment_max_set_size": {
+          "type": "integer",
+          "default": 500,
+          "fa_icon": "fas fa-expand",
+          "description": "Drop gene sets larger than this."
+        },
+        "enrichment_nperm": {
+          "type": "integer",
+          "default": 1000,
+          "fa_icon": "fas fa-random",
+          "description": "Permutations used to build the GSEA null distribution."
+        },
+        "enrichment_top_n": {
+          "type": "integer",
+          "default": 15,
+          "fa_icon": "fas fa-list-ol",
+          "description": "Number of top gene sets shown in each ORA/GSEA plot."
+        }
+      }
+    },
+    "generic_options": {
+      "title": "Generic options",
+      "type": "object",
+      "fa_icon": "fas fa-file-import",
+      "description": "Less common options, typically set in a config file.",
+      "properties": {
+        "conda_env": {
+          "type": "string",
+          "fa_icon": "fas fa-box",
+          "description": "Path or name of an existing conda environment to use for every process (conda profile only)."
+        },
+        "validate_params": {
+          "type": "boolean",
+          "default": true,
+          "hidden": true,
+          "fa_icon": "fas fa-check-square",
+          "description": "Boolean whether to validate parameters against the schema at runtime."
+        },
+        "help": {
+          "type": "boolean",
+          "default": false,
+          "hidden": true,
+          "fa_icon": "fas fa-question-circle",
+          "description": "Display help text."
+        }
+      }
+    }
+  },
+  "allOf": [
+    { "$ref": "#/definitions/input_output_options" },
+    { "$ref": "#/definitions/barcode_umi_options" },
+    { "$ref": "#/definitions/pipeline_options" },
+    { "$ref": "#/definitions/differential_expression_options" },
+    { "$ref": "#/definitions/enrichment_options" },
+    { "$ref": "#/definitions/generic_options" }
+  ]
+}

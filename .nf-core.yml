@@ -1,0 +1,14 @@
+repository_type: pipeline
+
+nf_core_version: "3.0.0"
+
+lint:
+  files_exist:
+    - CODE_OF_CONDUCT.md
+  files_unchanged: []
+
+template:
+  org: "gauravkp"
+  name: brbseq
+  description: "BRB-seq (Bulk RNA Barcoding and sequencing) analysis pipeline: STARsolo-based demultiplexing, alignment and gene x sample quantification"
+  author: "Gaurav Patil"

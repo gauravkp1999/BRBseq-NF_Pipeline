@@ -1,0 +1,3 @@
+run,fastq_1,fastq_2,barcode_map
+plate1,/path/to/plate1_R1.fastq.gz,/path/to/plate1_R2.fastq.gz,/path/to/plate1_barcodes.csv
+plate2,/path/to/plate2_R1.fastq.gz,/path/to/plate2_R2.fastq.gz,/path/to/plate2_barcodes.csv

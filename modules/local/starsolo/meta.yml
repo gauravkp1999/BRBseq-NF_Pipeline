@@ -1,0 +1,48 @@
+name: starsolo
+description: Jointly align BRB-seq R2 (cDNA) and demultiplex by R1 barcode/UMI using STARsolo, producing a per-run gene x barcode UMI count matrix
+keywords:
+  - alignment
+  - demultiplexing
+  - umi
+  - star
+  - starsolo
+tools:
+  - star:
+      description: Universal RNA-seq aligner, with the STARsolo barcode-aware mode
+      homepage: https://github.com/alexdobin/STAR
+      licence: ["MIT"]
+input:
+  - meta:
+      type: map
+      description: "Groovy Map containing run information, e.g. [id: 'run1']"
+  - fastq_1:
+      type: file
+      description: R1 FASTQ (barcode + UMI)
+  - fastq_2:
+      type: file
+      description: R2 FASTQ (cDNA fragment)
+  - whitelist:
+      type: file
+      description: One barcode per line (from PREPARE_BARCODES)
+  - index:
+      type: directory
+      description: STAR genome index
+output:
+  - bam:
+      type: file
+      description: Coordinate-sorted BAM, tagged with CB/UB
+  - log_final:
+      type: file
+      description: STAR Log.final.out summary
+  - solo_out:
+      type: directory
+      description: Full Solo.out directory
+  - raw_matrix:
+      type: directory
+      description: Gene/raw matrix.mtx + barcodes.tsv + features.tsv
+  - summary:
+      type: file
+      description: STARsolo Gene/Summary.csv
+  - versions:
+      type: file
+      description: File containing software versions

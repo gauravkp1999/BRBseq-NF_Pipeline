@@ -1,0 +1,35 @@
+name: gene_enrichment
+description: "Organism-agnostic ORA (hypergeometric) and GSEA (weighted running-sum, preranked) gene-set enrichment on one contrast's DESeq2 results, against a user-supplied GMT file"
+keywords:
+  - enrichment
+  - gsea
+  - ora
+  - gene set
+tools:
+  - gene_enrichment:
+      description: "Custom R script (bin/gene_enrichment.R) implementing ORA (phyper) and preranked GSEA (Subramanian et al. 2005 weighted running-sum statistic, gene-set-permutation null) independently of clusterProfiler/fgsea, so the pipeline has no org.*.eg.db / heavy Bioconductor annotation dependency and works for any organism as long as --gmt_file's gene IDs match --deseq_results' gene_id namespace"
+      doi: 10.1073/pnas.0506580102
+      licence: ["MIT"]
+input:
+  - deseq_results:
+      type: file
+      description: One contrast's DESeq2 results TSV from DESEQ2_DIFFERENTIAL (gene_id, log2FoldChange, stat, padj, ...)
+  - gmt_file:
+      type: file
+      description: "Gene sets in GMT format: <set_name>\\t<description>\\t<gene1>\\t<gene2>\\t..."
+output:
+  - ora_results:
+      type: file
+      description: ORA results TSV (gene_set, description, set_size, overlap_size, overlap_genes, pvalue, padj)
+  - ora_plot:
+      type: file
+      description: ORA top-gene-set dotplot PNG
+  - gsea_results:
+      type: file
+      description: GSEA results TSV (gene_set, description, size, ES, NES, pvalue, padj)
+  - gsea_plot:
+      type: file
+      description: GSEA top-gene-set NES barplot PNG
+  - versions:
+      type: file
+      description: File containing software versions

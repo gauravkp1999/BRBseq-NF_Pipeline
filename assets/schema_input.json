@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://raw.githubusercontent.com/gauravkp/brbseq/master/assets/schema_input.json",
+  "title": "gauravkp/brbseq pipeline - samplesheet schema",
+  "description": "One row per pooled/multiplexed sequencing run (NOT one row per biological sample - BRB-seq pools many samples per run via in-read barcoding). Sample names declared inside each run's barcode_map must be unique across the whole samplesheet.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "run": {
+        "type": "string",
+        "pattern": "^\\S+$",
+        "errorMessage": "Run identifier must be provided and cannot contain spaces",
+        "meta": ["id"]
+      },
+      "fastq_1": {
+        "type": "string",
+        "format": "file-path",
+        "exists": true,
+        "pattern": "^\\S+\\.f(ast)?q\\.gz$",
+        "errorMessage": "FASTQ file for Read 1 (sample barcode + UMI) must be provided, cannot contain spaces and must have extension '.fq.gz' or '.fastq.gz'"
+      },
+      "fastq_2": {
+        "type": "string",
+        "format": "file-path",
+        "exists": true,
+        "pattern": "^\\S+\\.f(ast)?q\\.gz$",
+        "errorMessage": "FASTQ file for Read 2 (cDNA fragment) must be provided, cannot contain spaces and must have extension '.fq.gz' or '.fastq.gz'"
+      },
+      "barcode_map": {
+        "type": "string",
+        "format": "file-path",
+        "exists": true,
+        "errorMessage": "A barcode_map file (CSV/TSV mapping sample names to barcodes used in this run) must be provided"
+      }
+    },
+    "required": ["run", "fastq_1", "fastq_2", "barcode_map"]
+  }
+}

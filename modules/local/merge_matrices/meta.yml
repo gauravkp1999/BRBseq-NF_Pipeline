@@ -1,0 +1,21 @@
+name: merge_matrices
+description: Merge per-run gene x sample count matrices into one combined matrix across all sequencing runs
+keywords:
+  - counts
+  - matrix
+  - custom
+tools:
+  - pandas:
+      description: Custom Python/pandas merge script (bin/merge_matrices.py)
+      licence: ["MIT"]
+input:
+  - matrices:
+      type: file
+      description: List of per-run gene x sample TSV files
+output:
+  - merged_counts:
+      type: file
+      description: Combined gene x sample count matrix (TSV) across all runs
+  - versions:
+      type: file
+      description: File containing software versions

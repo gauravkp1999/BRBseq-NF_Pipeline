@@ -1,0 +1,48 @@
+name: deseq2_differential
+description: Differential expression analysis on a gene x sample count matrix using DESeq2, one or more contrasts at a time
+keywords:
+  - differential expression
+  - deseq2
+  - rna-seq
+tools:
+  - deseq2:
+      description: Differential gene expression analysis based on the negative binomial distribution
+      homepage: https://bioconductor.org/packages/release/bioc/html/DESeq2.html
+      documentation: https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html
+      doi: 10.1186/s13059-014-0550-8
+      licence: ["LGPL >=3"]
+input:
+  - counts:
+      type: file
+      description: Merged gene x sample count matrix (TSV, first column gene_id) - the brbseq pipeline's counts/brbseq.merged_counts.tsv
+  - sample_meta:
+      type: file
+      description: "CSV/TSV with a 'sample' column plus any covariate columns referenced by --contrasts"
+  - contrasts:
+      type: file
+      description: "CSV/TSV: id,variable,reference,target - one row per comparison to run"
+output:
+  - results:
+      type: file
+      description: Per-contrast DESeq2 results TSV (gene_id, baseMean, log2FoldChange, lfcSE, stat, pvalue, padj, significant)
+  - volcano_plots:
+      type: file
+      description: Per-contrast volcano plot PNG
+  - ma_plots:
+      type: file
+      description: Per-contrast MA plot PNG
+  - normalized_counts:
+      type: file
+      description: DESeq2 size-factor-normalized count matrix (shared across all contrasts)
+  - pca_plot:
+      type: file
+      description: PCA plot of variance-stabilized counts
+  - sample_distance_plot:
+      type: file
+      description: Sample-to-sample distance heatmap
+  - dds_rds:
+      type: file
+      description: Saved DESeqDataSet (R .rds) for reuse/debugging
+  - versions:
+      type: file
+      description: File containing software versions

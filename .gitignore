@@ -1,0 +1,30 @@
+# Nextflow
+.work/
+.nextflow/
+.nextflow.log*
+work/
+
+# Sequencing data
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.sam
+*.cram
+
+# Output directories
+results/
+output/
+
+# Temporary files
+*.tmp
+*.log
+
+# Python
+__pycache__/
+*.pyc
+
+# System
+.DS_Store
+Thumbs.db

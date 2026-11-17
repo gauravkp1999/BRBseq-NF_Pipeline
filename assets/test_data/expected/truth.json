@@ -1,0 +1,32 @@
+{
+  "total_reads": 730850,
+  "valid_barcode_reads": 716521,
+  "invalid_barcode_reads": 14329,
+  "mismatch_barcode_reads": 10681,
+  "seed": 21,
+  "n_genes": 92,
+  "n_sites": 202,
+  "reps": 4,
+  "samples": [
+    "ctrl_1",
+    "ctrl_2",
+    "ctrl_3",
+    "ctrl_4",
+    "KD_1",
+    "KD_2",
+    "KD_3",
+    "KD_4"
+  ],
+  "genes_per_category": {
+    "ipa_up": 12,
+    "ipa_down": 12,
+    "ipa_null": 12,
+    "utr_short": 12,
+    "utr_long": 12,
+    "utr_null": 12,
+    "expr_only": 12,
+    "trap": 8
+  },
+  "genome_bp": 587147,
+  "expected_valid_barcode_fraction": 0.9804
+}

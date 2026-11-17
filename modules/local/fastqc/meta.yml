@@ -1,0 +1,25 @@
+name: fastqc
+description: Run FastQC on a FASTQ file
+keywords:
+  - quality control
+  - qc
+  - fastq
+tools:
+  - fastqc:
+      description: Quality control tool for high throughput sequence data
+      homepage: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+      licence: ["GPL-2.0-only"]
+input:
+  - meta:
+      type: map
+      description: "Groovy Map containing run information, e.g. [id: 'run1']"
+  - reads:
+      type: file
+      description: A single FASTQ file (R1 or R2)
+output:
+  - reports:
+      type: file
+      description: FastQC report (zip and html)
+  - versions:
+      type: file
+      description: File containing software versions

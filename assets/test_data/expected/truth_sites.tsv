@@ -1,0 +1,203 @@
+gene_id	site_id	chrom	strand	position	region	event_type	site_role	ctrl_frac	kd_frac	delta_frac	expected_call	is_null	gene_expr_fc_KD_vs_ctrl	note
+GENE0001	GENE0001_int1	chr1	-	3439	intronic	trap	artifact_site	0.0325	0.2019	+0.1694	none	TRUE	1	internal-priming artifact: usage rises in KD, so a missing A-filter gives a FALSE IPA gain
+GENE0001	GENE0001_utr1	chr1	-	461	3UTR	trap	compensating_site	0.9675	0.7981	-0.1694	none	TRUE	1	internal-priming artifact: usage rises in KD, so a missing A-filter gives a FALSE IPA gain
+GENE0002	GENE0002_int1	chr1	-	7856	intronic	trap	artifact_site	0.1022	0.1022	+0.0000	none	TRUE	1	internal-priming artifact, constant usage; must be filtered
+GENE0002	GENE0002_utr1	chr1	-	6223	3UTR	trap	constant_site	0.8978	0.8978	+0.0000	none	TRUE	1	internal-priming artifact, constant usage; must be filtered
+GENE0003	GENE0003_int1	chr1	+	17861	intronic	expr_only	tested_site	0.1140	0.1140	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0003	GENE0003_utr1	chr1	+	19503	3UTR	expr_only	constant_site	0.8860	0.8860	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0004	GENE0004_int1	chr1	+	21121	intronic	ipa_down	constant_site	0.0501	0.0501	+0.0000	none	TRUE	1	intronic site loses usage in KD
+GENE0004	GENE0004_int2	chr1	+	22572	intronic	ipa_down	tested_site	0.3832	0.0566	-0.3266	IPA_loss	FALSE	1	intronic site loses usage in KD
+GENE0004	GENE0004_utr1	chr1	+	23927	3UTR	ipa_down	compensating_site	0.5667	0.8933	+0.3266	none	TRUE	1	intronic site loses usage in KD
+GENE0005	GENE0005_utr1	chr1	+	27985	3UTR	utr_long	tested_site	0.7599	0.2034	-0.5565	3UTR_lengthening	FALSE	1	proximal 3'UTR site loses usage in KD
+GENE0005	GENE0005_utr2	chr1	+	28693	3UTR	utr_long	compensating_site	0.2401	0.7966	+0.5565	none	TRUE	1	proximal 3'UTR site loses usage in KD
+GENE0006	GENE0006_int1	chr1	-	32302	intronic	ipa_null	tested_site	0.0942	0.0942	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0006	GENE0006_utr1	chr1	-	29312	3UTR	ipa_null	constant_site	0.9058	0.9058	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0007	GENE0007_int1	chr1	-	38391	intronic	ipa_null	tested_site	0.2486	0.2486	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0007	GENE0007_utr1	chr1	-	37010	3UTR	ipa_null	constant_site	0.7514	0.7514	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0008	GENE0008_int1	chr1	-	46120	intronic	ipa_up	constant_site	0.0482	0.0482	+0.0000	none	TRUE	1	intronic site gains usage in KD
+GENE0008	GENE0008_int2	chr1	-	42944	intronic	ipa_up	tested_site	0.0616	0.4202	+0.3586	IPA_gain	FALSE	1	intronic site gains usage in KD
+GENE0008	GENE0008_utr1	chr1	-	41701	3UTR	ipa_up	compensating_site	0.8902	0.5316	-0.3586	none	TRUE	1	intronic site gains usage in KD
+GENE0009	GENE0009_utr1	chr1	+	53034	3UTR	utr_long	tested_site	0.7779	0.1195	-0.6584	3UTR_lengthening	FALSE	1	proximal 3'UTR site loses usage in KD
+GENE0009	GENE0009_utr2	chr1	+	53844	3UTR	utr_long	compensating_site	0.2221	0.8805	+0.6584	none	TRUE	1	proximal 3'UTR site loses usage in KD
+GENE0010	GENE0010_utr1	chr1	+	58525	3UTR	utr_null	tested_site	0.4864	0.4864	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0010	GENE0010_utr2	chr1	+	59274	3UTR	utr_null	constant_site	0.5136	0.5136	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0011	GENE0011_int1	chr1	+	60919	intronic	ipa_down	constant_site	0.0481	0.0481	+0.0000	none	TRUE	1	intronic site loses usage in KD
+GENE0011	GENE0011_int2	chr1	+	64340	intronic	ipa_down	tested_site	0.3641	0.0414	-0.3227	IPA_loss	FALSE	1	intronic site loses usage in KD
+GENE0011	GENE0011_utr1	chr1	+	65670	3UTR	ipa_down	compensating_site	0.5878	0.9105	+0.3227	none	TRUE	1	intronic site loses usage in KD
+GENE0012	GENE0012_int1	chr1	+	69386	intronic	ipa_null	tested_site	0.2862	0.2862	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0012	GENE0012_utr1	chr1	+	70733	3UTR	ipa_null	constant_site	0.7138	0.7138	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0013	GENE0013_int1	chr1	+	73444	intronic	ipa_null	constant_site	0.0798	0.0798	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0013	GENE0013_int2	chr1	+	74044	intronic	ipa_null	tested_site	0.2894	0.2894	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0013	GENE0013_utr1	chr1	+	75465	3UTR	ipa_null	constant_site	0.6308	0.6308	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0014	GENE0014_utr1	chr1	-	76888	3UTR	utr_short	tested_site	0.1554	0.6957	+0.5402	3UTR_shortening	FALSE	1	proximal 3'UTR site gains usage in KD
+GENE0014	GENE0014_utr2	chr1	-	76131	3UTR	utr_short	compensating_site	0.8446	0.3043	-0.5402	none	TRUE	1	proximal 3'UTR site gains usage in KD
+GENE0015	GENE0015_int1	chr1	+	87173	intronic	ipa_down	tested_site	0.3621	0.0525	-0.3097	IPA_loss	FALSE	1	intronic site loses usage in KD
+GENE0015	GENE0015_utr1	chr1	+	91537	3UTR	ipa_down	compensating_site	0.6379	0.9475	+0.3097	none	TRUE	1	intronic site loses usage in KD
+GENE0016	GENE0016_utr1	chr1	+	97148	3UTR	utr_short	tested_site	0.1452	0.7286	+0.5834	3UTR_shortening	FALSE	1	proximal 3'UTR site gains usage in KD
+GENE0016	GENE0016_utr2	chr1	+	97903	3UTR	utr_short	compensating_site	0.8548	0.2714	-0.5834	none	TRUE	1	proximal 3'UTR site gains usage in KD
+GENE0017	GENE0017_int1	chr1	+	100621	intronic	expr_only	tested_site	0.2782	0.2782	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0017	GENE0017_utr1	chr1	+	101996	3UTR	expr_only	constant_site	0.7218	0.7218	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0018	GENE0018_int1	chr1	-	103943	intronic	expr_only	tested_site	0.2587	0.2587	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0018	GENE0018_utr1	chr1	-	102492	3UTR	expr_only	constant_site	0.7413	0.7413	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0019	GENE0019_utr1	chr1	+	110383	3UTR	utr_short	tested_site	0.1166	0.7730	+0.6564	3UTR_shortening	FALSE	1	proximal 3'UTR site gains usage in KD
+GENE0019	GENE0019_utr2	chr1	+	111221	3UTR	utr_short	compensating_site	0.8834	0.2270	-0.6564	none	TRUE	1	proximal 3'UTR site gains usage in KD
+GENE0020	GENE0020_utr1	chr1	+	115721	3UTR	utr_short	tested_site	0.1475	0.6293	+0.4818	3UTR_shortening	FALSE	1	proximal 3'UTR site gains usage in KD
+GENE0020	GENE0020_utr2	chr1	+	116542	3UTR	utr_short	compensating_site	0.8525	0.3707	-0.4818	none	TRUE	1	proximal 3'UTR site gains usage in KD
+GENE0021	GENE0021_utr1	chr1	+	122344	3UTR	utr_long	tested_site	0.6322	0.2175	-0.4146	3UTR_lengthening	FALSE	1	proximal 3'UTR site loses usage in KD
+GENE0021	GENE0021_utr2	chr1	+	123128	3UTR	utr_long	compensating_site	0.3678	0.7825	+0.4146	none	TRUE	1	proximal 3'UTR site loses usage in KD
+GENE0022	GENE0022_int1	chr1	+	124542	intronic	trap	artifact_site	0.0308	0.2394	+0.2086	none	TRUE	1	internal-priming artifact: usage rises in KD, so a missing A-filter gives a FALSE IPA gain
+GENE0022	GENE0022_utr1	chr1	+	131009	3UTR	trap	compensating_site	0.9692	0.7606	-0.2086	none	TRUE	1	internal-priming artifact: usage rises in KD, so a missing A-filter gives a FALSE IPA gain
+GENE0023	GENE0023_int1	chr1	+	132292	intronic	ipa_down	constant_site	0.0608	0.0608	+0.0000	none	TRUE	1	intronic site loses usage in KD
+GENE0023	GENE0023_int2	chr1	+	133908	intronic	ipa_down	tested_site	0.4078	0.0657	-0.3421	IPA_loss	FALSE	1	intronic site loses usage in KD
+GENE0023	GENE0023_utr1	chr1	+	135155	3UTR	ipa_down	compensating_site	0.5315	0.8736	+0.3421	none	TRUE	1	intronic site loses usage in KD
+GENE0024	GENE0024_int1	chr1	+	141318	intronic	ipa_down	tested_site	0.3507	0.0626	-0.2881	IPA_loss	FALSE	1	intronic site loses usage in KD
+GENE0024	GENE0024_utr1	chr1	+	142464	3UTR	ipa_down	compensating_site	0.6493	0.9374	+0.2881	none	TRUE	1	intronic site loses usage in KD
+GENE0025	GENE0025_utr1	chr1	+	146366	3UTR	utr_long	tested_site	0.6038	0.2247	-0.3790	3UTR_lengthening	FALSE	1	proximal 3'UTR site loses usage in KD
+GENE0025	GENE0025_utr2	chr1	+	147200	3UTR	utr_long	compensating_site	0.3962	0.7753	+0.3790	none	TRUE	1	proximal 3'UTR site loses usage in KD
+GENE0026	GENE0026_utr1	chr1	-	148593	3UTR	utr_null	tested_site	0.4441	0.4441	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0026	GENE0026_utr2	chr1	-	147846	3UTR	utr_null	constant_site	0.5559	0.5559	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0027	GENE0027_int1	chr1	-	154492	intronic	expr_only	tested_site	0.1827	0.1827	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0027	GENE0027_utr1	chr1	-	152916	3UTR	expr_only	constant_site	0.8173	0.8173	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0028	GENE0028_int1	chr1	+	164797	intronic	ipa_down	tested_site	0.4106	0.0661	-0.3445	IPA_loss	FALSE	1	intronic site loses usage in KD
+GENE0028	GENE0028_utr1	chr1	+	168077	3UTR	ipa_down	compensating_site	0.5894	0.9339	+0.3445	none	TRUE	1	intronic site loses usage in KD
+GENE0029	GENE0029_utr1	chr1	-	169373	3UTR	utr_null	tested_site	0.3033	0.3033	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0029	GENE0029_utr2	chr1	-	168589	3UTR	utr_null	constant_site	0.6967	0.6967	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0030	GENE0030_utr1	chr1	+	177161	3UTR	utr_long	tested_site	0.6296	0.1154	-0.5141	3UTR_lengthening	FALSE	1	proximal 3'UTR site loses usage in KD
+GENE0030	GENE0030_utr2	chr1	+	177990	3UTR	utr_long	compensating_site	0.3704	0.8846	+0.5141	none	TRUE	1	proximal 3'UTR site loses usage in KD
+GENE0031	GENE0031_int1	chr1	-	181427	intronic	ipa_up	tested_site	0.0585	0.3448	+0.2863	IPA_gain	FALSE	1	intronic site gains usage in KD
+GENE0031	GENE0031_utr1	chr1	-	178551	3UTR	ipa_up	compensating_site	0.9415	0.6552	-0.2863	none	TRUE	1	intronic site gains usage in KD
+GENE0032	GENE0032_int1	chr2	+	1885	intronic	ipa_null	constant_site	0.0570	0.0570	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0032	GENE0032_int2	chr2	+	4940	intronic	ipa_null	tested_site	0.0812	0.0812	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0032	GENE0032_utr1	chr2	+	6238	3UTR	ipa_null	constant_site	0.8618	0.8618	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0033	GENE0033_utr1	chr2	+	11902	3UTR	utr_short	tested_site	0.2059	0.6828	+0.4768	3UTR_shortening	FALSE	1	proximal 3'UTR site gains usage in KD
+GENE0033	GENE0033_utr2	chr2	+	12722	3UTR	utr_short	compensating_site	0.7941	0.3172	-0.4768	none	TRUE	1	proximal 3'UTR site gains usage in KD
+GENE0034	GENE0034_utr1	chr2	-	14103	3UTR	utr_long	tested_site	0.6506	0.2251	-0.4255	3UTR_lengthening	FALSE	1	proximal 3'UTR site loses usage in KD
+GENE0034	GENE0034_utr2	chr2	-	13380	3UTR	utr_long	compensating_site	0.3494	0.7749	+0.4255	none	TRUE	1	proximal 3'UTR site loses usage in KD
+GENE0035	GENE0035_utr1	chr2	+	23447	3UTR	utr_short	tested_site	0.1678	0.6240	+0.4562	3UTR_shortening	FALSE	1	proximal 3'UTR site gains usage in KD
+GENE0035	GENE0035_utr2	chr2	+	24209	3UTR	utr_short	compensating_site	0.8322	0.3760	-0.4562	none	TRUE	1	proximal 3'UTR site gains usage in KD
+GENE0036	GENE0036_int1	chr2	-	27956	intronic	ipa_down	tested_site	0.4147	0.0603	-0.3543	IPA_loss	FALSE	1	intronic site loses usage in KD
+GENE0036	GENE0036_utr1	chr2	-	24858	3UTR	ipa_down	compensating_site	0.5853	0.9397	+0.3543	none	TRUE	1	intronic site loses usage in KD
+GENE0037	GENE0037_int1	chr2	+	35337	intronic	ipa_down	constant_site	0.0526	0.0526	+0.0000	none	TRUE	1	intronic site loses usage in KD
+GENE0037	GENE0037_int2	chr2	+	38796	intronic	ipa_down	tested_site	0.4653	0.0347	-0.4306	IPA_loss	FALSE	1	intronic site loses usage in KD
+GENE0037	GENE0037_utr1	chr2	+	40279	3UTR	ipa_down	compensating_site	0.4822	0.9128	+0.4306	none	TRUE	1	intronic site loses usage in KD
+GENE0038	GENE0038_int1	chr2	+	45242	intronic	expr_only	tested_site	0.1250	0.1250	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0038	GENE0038_utr1	chr2	+	46743	3UTR	expr_only	constant_site	0.8750	0.8750	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0039	GENE0039_int1	chr2	+	47944	intronic	ipa_down	constant_site	0.0704	0.0704	+0.0000	none	TRUE	1	intronic site loses usage in KD
+GENE0039	GENE0039_int2	chr2	+	49989	intronic	ipa_down	tested_site	0.4540	0.0734	-0.3807	IPA_loss	FALSE	1	intronic site loses usage in KD
+GENE0039	GENE0039_utr1	chr2	+	51338	3UTR	ipa_down	compensating_site	0.4756	0.8563	+0.3807	none	TRUE	1	intronic site loses usage in KD
+GENE0040	GENE0040_int1	chr2	-	56201	intronic	expr_only	tested_site	0.1709	0.1709	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0040	GENE0040_utr1	chr2	-	51896	3UTR	expr_only	constant_site	0.8291	0.8291	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0041	GENE0041_int1	chr2	+	58911	intronic	ipa_up	tested_site	0.0584	0.4633	+0.4050	IPA_gain	FALSE	1	intronic site gains usage in KD
+GENE0041	GENE0041_utr1	chr2	+	63776	3UTR	ipa_up	compensating_site	0.9416	0.5367	-0.4050	none	TRUE	1	intronic site gains usage in KD
+GENE0042	GENE0042_int1	chr2	+	65462	intronic	ipa_up	tested_site	0.0431	0.4518	+0.4087	IPA_gain	FALSE	1	intronic site gains usage in KD
+GENE0042	GENE0042_utr1	chr2	+	68119	3UTR	ipa_up	compensating_site	0.9569	0.5482	-0.4087	none	TRUE	1	intronic site gains usage in KD
+GENE0043	GENE0043_int1	chr2	-	72629	intronic	expr_only	tested_site	0.2568	0.2568	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0043	GENE0043_utr1	chr2	-	68638	3UTR	expr_only	constant_site	0.7432	0.7432	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0044	GENE0044_int1	chr2	-	78886	intronic	trap	artifact_site	0.1476	0.1476	+0.0000	none	TRUE	1	internal-priming artifact, constant usage; must be filtered
+GENE0044	GENE0044_utr1	chr2	-	75796	3UTR	trap	constant_site	0.8524	0.8524	+0.0000	none	TRUE	1	internal-priming artifact, constant usage; must be filtered
+GENE0045	GENE0045_int1	chr2	+	85133	intronic	ipa_null	constant_site	0.0613	0.0613	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0045	GENE0045_int2	chr2	+	86989	intronic	ipa_null	tested_site	0.2127	0.2127	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0045	GENE0045_utr1	chr2	+	88204	3UTR	ipa_null	constant_site	0.7260	0.7260	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0046	GENE0046_int1	chr2	+	89649	intronic	trap	artifact_site	0.0430	0.2670	+0.2240	none	TRUE	1	internal-priming artifact: usage rises in KD, so a missing A-filter gives a FALSE IPA gain
+GENE0046	GENE0046_utr1	chr2	+	92949	3UTR	trap	compensating_site	0.9570	0.7330	-0.2240	none	TRUE	1	internal-priming artifact: usage rises in KD, so a missing A-filter gives a FALSE IPA gain
+GENE0047	GENE0047_utr1	chr2	+	98785	3UTR	utr_short	tested_site	0.2412	0.6369	+0.3957	3UTR_shortening	FALSE	1	proximal 3'UTR site gains usage in KD
+GENE0047	GENE0047_utr2	chr2	+	99551	3UTR	utr_short	compensating_site	0.7588	0.3631	-0.3957	none	TRUE	1	proximal 3'UTR site gains usage in KD
+GENE0048	GENE0048_int1	chr2	+	104348	intronic	ipa_null	tested_site	0.2271	0.2271	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0048	GENE0048_int2	chr2	+	104709	intronic	ipa_null	constant_site	0.0699	0.0699	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0048	GENE0048_utr1	chr2	+	105879	3UTR	ipa_null	constant_site	0.7030	0.7030	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0049	GENE0049_int1	chr2	+	107689	intronic	ipa_up	constant_site	0.0449	0.0449	+0.0000	none	TRUE	1	intronic site gains usage in KD
+GENE0049	GENE0049_int2	chr2	+	108602	intronic	ipa_up	tested_site	0.0711	0.4408	+0.3697	IPA_gain	FALSE	1	intronic site gains usage in KD
+GENE0049	GENE0049_utr1	chr2	+	112107	3UTR	ipa_up	compensating_site	0.8840	0.5143	-0.3697	none	TRUE	1	intronic site gains usage in KD
+GENE0050	GENE0050_utr1	chr2	-	113407	3UTR	utr_null	tested_site	0.4526	0.4526	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0050	GENE0050_utr2	chr2	-	112630	3UTR	utr_null	constant_site	0.5474	0.5474	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0051	GENE0051_int1	chr2	-	120580	intronic	expr_only	tested_site	0.1037	0.1037	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0051	GENE0051_utr1	chr2	-	119209	3UTR	expr_only	constant_site	0.8963	0.8963	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0052	GENE0052_utr1	chr2	+	130508	3UTR	utr_long	tested_site	0.7487	0.1430	-0.6057	3UTR_lengthening	FALSE	1	proximal 3'UTR site loses usage in KD
+GENE0052	GENE0052_utr2	chr2	+	131322	3UTR	utr_long	compensating_site	0.2513	0.8570	+0.6057	none	TRUE	1	proximal 3'UTR site loses usage in KD
+GENE0053	GENE0053_utr1	chr2	+	137311	3UTR	utr_null	tested_site	0.4523	0.4523	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0053	GENE0053_utr2	chr2	+	138049	3UTR	utr_null	constant_site	0.5477	0.5477	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0054	GENE0054_utr1	chr2	+	145571	3UTR	utr_null	tested_site	0.3381	0.3381	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0054	GENE0054_utr2	chr2	+	146294	3UTR	utr_null	constant_site	0.6619	0.6619	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0055	GENE0055_int1	chr2	+	152575	intronic	expr_only	tested_site	0.2080	0.2080	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0055	GENE0055_utr1	chr2	+	153903	3UTR	expr_only	constant_site	0.7920	0.7920	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0056	GENE0056_int1	chr2	+	158552	intronic	ipa_up	tested_site	0.0424	0.3388	+0.2965	IPA_gain	FALSE	1	intronic site gains usage in KD
+GENE0056	GENE0056_int2	chr2	+	160810	intronic	ipa_up	constant_site	0.0783	0.0783	+0.0000	none	TRUE	1	intronic site gains usage in KD
+GENE0056	GENE0056_utr1	chr2	+	162032	3UTR	ipa_up	compensating_site	0.8793	0.5829	-0.2965	none	TRUE	1	intronic site gains usage in KD
+GENE0057	GENE0057_int1	chr2	+	165146	intronic	expr_only	tested_site	0.2322	0.2322	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0057	GENE0057_utr1	chr2	+	166843	3UTR	expr_only	constant_site	0.7678	0.7678	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0058	GENE0058_int1	chr2	+	169950	intronic	trap	artifact_site	0.1280	0.1280	+0.0000	none	TRUE	1	internal-priming artifact, constant usage; must be filtered
+GENE0058	GENE0058_utr1	chr2	+	173070	3UTR	trap	constant_site	0.8720	0.8720	+0.0000	none	TRUE	1	internal-priming artifact, constant usage; must be filtered
+GENE0059	GENE0059_utr1	chr2	+	180244	3UTR	utr_short	tested_site	0.1699	0.7775	+0.6076	3UTR_shortening	FALSE	1	proximal 3'UTR site gains usage in KD
+GENE0059	GENE0059_utr2	chr2	+	181066	3UTR	utr_short	compensating_site	0.8301	0.2225	-0.6076	none	TRUE	1	proximal 3'UTR site gains usage in KD
+GENE0060	GENE0060_int1	chr2	+	182873	intronic	ipa_up	tested_site	0.0571	0.4536	+0.3965	IPA_gain	FALSE	1	intronic site gains usage in KD
+GENE0060	GENE0060_int2	chr2	+	184185	intronic	ipa_up	constant_site	0.0575	0.0575	+0.0000	none	TRUE	1	intronic site gains usage in KD
+GENE0060	GENE0060_utr1	chr2	+	185959	3UTR	ipa_up	compensating_site	0.8854	0.4889	-0.3965	none	TRUE	1	intronic site gains usage in KD
+GENE0061	GENE0061_utr1	chr2	-	187314	3UTR	utr_short	tested_site	0.1527	0.7554	+0.6027	3UTR_shortening	FALSE	1	proximal 3'UTR site gains usage in KD
+GENE0061	GENE0061_utr2	chr2	-	186472	3UTR	utr_short	compensating_site	0.8473	0.2446	-0.6027	none	TRUE	1	proximal 3'UTR site gains usage in KD
+GENE0062	GENE0062_int1	chr2	-	199068	intronic	ipa_null	tested_site	0.0875	0.0875	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0062	GENE0062_int2	chr2	-	194792	intronic	ipa_null	constant_site	0.0723	0.0723	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0062	GENE0062_utr1	chr2	-	193420	3UTR	ipa_null	constant_site	0.8402	0.8402	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0063	GENE0063_int1	chr3	+	3098	intronic	ipa_null	tested_site	0.1813	0.1813	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0063	GENE0063_utr1	chr3	+	7783	3UTR	ipa_null	constant_site	0.8187	0.8187	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0064	GENE0064_utr1	chr3	-	9045	3UTR	utr_short	tested_site	0.2037	0.7029	+0.4993	3UTR_shortening	FALSE	1	proximal 3'UTR site gains usage in KD
+GENE0064	GENE0064_utr2	chr3	-	8261	3UTR	utr_short	compensating_site	0.7963	0.2971	-0.4993	none	TRUE	1	proximal 3'UTR site gains usage in KD
+GENE0065	GENE0065_int1	chr3	-	16671	intronic	ipa_up	tested_site	0.0551	0.3579	+0.3028	IPA_gain	FALSE	1	intronic site gains usage in KD
+GENE0065	GENE0065_utr1	chr3	-	13401	3UTR	ipa_up	compensating_site	0.9449	0.6421	-0.3028	none	TRUE	1	intronic site gains usage in KD
+GENE0066	GENE0066_utr1	chr3	-	19373	3UTR	utr_long	tested_site	0.6095	0.1982	-0.4113	3UTR_lengthening	FALSE	1	proximal 3'UTR site loses usage in KD
+GENE0066	GENE0066_utr2	chr3	-	18550	3UTR	utr_long	compensating_site	0.3905	0.8018	+0.4113	none	TRUE	1	proximal 3'UTR site loses usage in KD
+GENE0067	GENE0067_utr1	chr3	-	24050	3UTR	utr_long	tested_site	0.6272	0.1562	-0.4710	3UTR_lengthening	FALSE	1	proximal 3'UTR site loses usage in KD
+GENE0067	GENE0067_utr2	chr3	-	23338	3UTR	utr_long	compensating_site	0.3728	0.8438	+0.4710	none	TRUE	1	proximal 3'UTR site loses usage in KD
+GENE0068	GENE0068_utr1	chr3	+	36017	3UTR	utr_long	tested_site	0.7642	0.1077	-0.6565	3UTR_lengthening	FALSE	1	proximal 3'UTR site loses usage in KD
+GENE0068	GENE0068_utr2	chr3	+	36813	3UTR	utr_long	compensating_site	0.2358	0.8923	+0.6565	none	TRUE	1	proximal 3'UTR site loses usage in KD
+GENE0069	GENE0069_int1	chr3	+	41108	intronic	ipa_up	tested_site	0.0383	0.3958	+0.3575	IPA_gain	FALSE	1	intronic site gains usage in KD
+GENE0069	GENE0069_int2	chr3	+	42563	intronic	ipa_up	constant_site	0.0688	0.0688	+0.0000	none	TRUE	1	intronic site gains usage in KD
+GENE0069	GENE0069_utr1	chr3	+	44552	3UTR	ipa_up	compensating_site	0.8929	0.5354	-0.3575	none	TRUE	1	intronic site gains usage in KD
+GENE0070	GENE0070_utr1	chr3	-	45913	3UTR	utr_null	tested_site	0.3261	0.3261	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0070	GENE0070_utr2	chr3	-	45111	3UTR	utr_null	constant_site	0.6739	0.6739	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0071	GENE0071_int1	chr3	-	58356	intronic	ipa_null	tested_site	0.2627	0.2627	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0071	GENE0071_utr1	chr3	-	53377	3UTR	ipa_null	constant_site	0.7373	0.7373	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0072	GENE0072_int1	chr3	+	63482	intronic	ipa_down	tested_site	0.3488	0.0390	-0.3098	IPA_loss	FALSE	1	intronic site loses usage in KD
+GENE0072	GENE0072_int2	chr3	+	63864	intronic	ipa_down	constant_site	0.0423	0.0423	+0.0000	none	TRUE	1	intronic site loses usage in KD
+GENE0072	GENE0072_utr1	chr3	+	65174	3UTR	ipa_down	compensating_site	0.6089	0.9187	+0.3098	none	TRUE	1	intronic site loses usage in KD
+GENE0073	GENE0073_int1	chr3	+	69965	intronic	ipa_up	tested_site	0.0701	0.3870	+0.3170	IPA_gain	FALSE	1	intronic site gains usage in KD
+GENE0073	GENE0073_utr1	chr3	+	73119	3UTR	ipa_up	compensating_site	0.9299	0.6130	-0.3170	none	TRUE	1	intronic site gains usage in KD
+GENE0074	GENE0074_utr1	chr3	+	79701	3UTR	utr_long	tested_site	0.7236	0.2007	-0.5229	3UTR_lengthening	FALSE	1	proximal 3'UTR site loses usage in KD
+GENE0074	GENE0074_utr2	chr3	+	80486	3UTR	utr_long	compensating_site	0.2764	0.7993	+0.5229	none	TRUE	1	proximal 3'UTR site loses usage in KD
+GENE0075	GENE0075_int1	chr3	+	83228	intronic	expr_only	tested_site	0.2311	0.2311	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0075	GENE0075_utr1	chr3	+	86474	3UTR	expr_only	constant_site	0.7689	0.7689	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0076	GENE0076_utr1	chr3	-	87815	3UTR	utr_short	tested_site	0.1292	0.6158	+0.4866	3UTR_shortening	FALSE	1	proximal 3'UTR site gains usage in KD
+GENE0076	GENE0076_utr2	chr3	-	86970	3UTR	utr_short	compensating_site	0.8708	0.3842	-0.4866	none	TRUE	1	proximal 3'UTR site gains usage in KD
+GENE0077	GENE0077_int1	chr3	+	93955	intronic	ipa_up	constant_site	0.0547	0.0547	+0.0000	none	TRUE	1	intronic site gains usage in KD
+GENE0077	GENE0077_int2	chr3	+	95558	intronic	ipa_up	tested_site	0.0654	0.3800	+0.3146	IPA_gain	FALSE	1	intronic site gains usage in KD
+GENE0077	GENE0077_utr1	chr3	+	96860	3UTR	ipa_up	compensating_site	0.8799	0.5653	-0.3146	none	TRUE	1	intronic site gains usage in KD
+GENE0078	GENE0078_int1	chr3	+	103334	intronic	ipa_up	tested_site	0.0560	0.4244	+0.3684	IPA_gain	FALSE	1	intronic site gains usage in KD
+GENE0078	GENE0078_utr1	chr3	+	104765	3UTR	ipa_up	compensating_site	0.9440	0.5756	-0.3684	none	TRUE	1	intronic site gains usage in KD
+GENE0079	GENE0079_int1	chr3	+	107975	intronic	ipa_null	tested_site	0.2478	0.2478	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0079	GENE0079_utr1	chr3	+	109577	3UTR	ipa_null	constant_site	0.7522	0.7522	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0080	GENE0080_utr1	chr3	-	111047	3UTR	utr_null	tested_site	0.4441	0.4441	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0080	GENE0080_utr2	chr3	-	110218	3UTR	utr_null	constant_site	0.5559	0.5559	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0081	GENE0081_utr1	chr3	-	119154	3UTR	utr_null	tested_site	0.3297	0.3297	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0081	GENE0081_utr2	chr3	-	118393	3UTR	utr_null	constant_site	0.6703	0.6703	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0082	GENE0082_int1	chr3	+	129241	intronic	ipa_down	tested_site	0.4733	0.0780	-0.3953	IPA_loss	FALSE	1	intronic site loses usage in KD
+GENE0082	GENE0082_utr1	chr3	+	130999	3UTR	ipa_down	compensating_site	0.5267	0.9220	+0.3953	none	TRUE	1	intronic site loses usage in KD
+GENE0083	GENE0083_utr1	chr3	+	138567	3UTR	utr_null	tested_site	0.3796	0.3796	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0083	GENE0083_utr2	chr3	+	139374	3UTR	utr_null	constant_site	0.6204	0.6204	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0084	GENE0084_utr1	chr3	+	147246	3UTR	utr_null	tested_site	0.4346	0.4346	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0084	GENE0084_utr2	chr3	+	147981	3UTR	utr_null	constant_site	0.5654	0.5654	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0085	GENE0085_int1	chr3	+	149378	intronic	ipa_null	constant_site	0.0663	0.0663	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0085	GENE0085_int2	chr3	+	150110	intronic	ipa_null	tested_site	0.2211	0.2211	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0085	GENE0085_utr1	chr3	+	152880	3UTR	ipa_null	constant_site	0.7126	0.7126	+0.0000	none	TRUE	1	intronic site, unchanged: negative control
+GENE0086	GENE0086_utr1	chr3	+	160221	3UTR	utr_null	tested_site	0.3497	0.3497	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0086	GENE0086_utr2	chr3	+	160924	3UTR	utr_null	constant_site	0.6503	0.6503	+0.0000	none	TRUE	1	two 3'UTR sites, unchanged: negative control
+GENE0087	GENE0087_utr1	chr3	-	162281	3UTR	utr_short	tested_site	0.1399	0.6428	+0.5028	3UTR_shortening	FALSE	1	proximal 3'UTR site gains usage in KD
+GENE0087	GENE0087_utr2	chr3	-	161476	3UTR	utr_short	compensating_site	0.8601	0.3572	-0.5028	none	TRUE	1	proximal 3'UTR site gains usage in KD
+GENE0088	GENE0088_int1	chr3	-	171880	intronic	expr_only	tested_site	0.2046	0.2046	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0088	GENE0088_utr1	chr3	-	170096	3UTR	expr_only	constant_site	0.7954	0.7954	+0.0000	none	TRUE	3	whole gene x3 in KD, site ratios unchanged: must not be called IPA
+GENE0089	GENE0089_int1	chr3	-	177601	intronic	trap	artifact_site	0.0416	0.2795	+0.2379	none	TRUE	1	internal-priming artifact: usage rises in KD, so a missing A-filter gives a FALSE IPA gain
+GENE0089	GENE0089_utr1	chr3	-	175939	3UTR	trap	compensating_site	0.9584	0.7205	-0.2379	none	TRUE	1	internal-priming artifact: usage rises in KD, so a missing A-filter gives a FALSE IPA gain
+GENE0090	GENE0090_int1	chr3	-	183394	intronic	trap	artifact_site	0.1410	0.1410	+0.0000	none	TRUE	1	internal-priming artifact, constant usage; must be filtered
+GENE0090	GENE0090_utr1	chr3	-	182061	3UTR	trap	constant_site	0.8590	0.8590	+0.0000	none	TRUE	1	internal-priming artifact, constant usage; must be filtered
+GENE0091	GENE0091_utr1	chr3	+	191489	3UTR	utr_long	tested_site	0.6729	0.2212	-0.4517	3UTR_lengthening	FALSE	1	proximal 3'UTR site loses usage in KD
+GENE0091	GENE0091_utr2	chr3	+	192281	3UTR	utr_long	compensating_site	0.3271	0.7788	+0.4517	none	TRUE	1	proximal 3'UTR site loses usage in KD
+GENE0092	GENE0092_int1	chr3	+	194173	intronic	ipa_down	tested_site	0.3329	0.0444	-0.2884	IPA_loss	FALSE	1	intronic site loses usage in KD
+GENE0092	GENE0092_utr1	chr3	+	200241	3UTR	ipa_down	compensating_site	0.6671	0.9556	+0.2884	none	TRUE	1	intronic site loses usage in KD

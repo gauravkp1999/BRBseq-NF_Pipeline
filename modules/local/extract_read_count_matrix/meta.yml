@@ -1,0 +1,31 @@
+name: extract_read_count_matrix
+description: "(Optional, off by default) Run BRB-seqTools ExtractReadCountMatrix on a STARsolo-aligned BAM to get a raw, non-UMI-deduplicated read-count matrix"
+keywords:
+  - counts
+  - brb-seq
+  - optional
+tools:
+  - brbseqtools:
+      description: "Deprecated upstream (maintainers now recommend STARsolo); kept here only for its read-count-matrix extraction, which STARsolo itself does not produce"
+      homepage: https://github.com/DeplanckeLab/BRB-seqTools
+      licence: ["GPL-3.0-or-later"]
+input:
+  - meta:
+      type: map
+      description: "Groovy Map containing run information, e.g. [id: 'run1']"
+  - bam:
+      type: file
+      description: STARsolo-aligned, sorted BAM
+  - barcode_sample_map:
+      type: file
+      description: Normalized barcode<TAB>sample mapping (from PREPARE_BARCODES)
+  - gtf:
+      type: file
+      description: Reference annotation GTF
+output:
+  - readcounts:
+      type: directory
+      description: BRB-seqTools ExtractReadCountMatrix output folder (contents/filenames not pinned - verify against the tool's own run log)
+  - versions:
+      type: file
+      description: File containing software versions

@@ -1,0 +1,25 @@
+name: star_index
+description: Build a STAR genome index
+keywords:
+  - index
+  - star
+  - reference
+tools:
+  - star:
+      description: Universal RNA-seq aligner
+      homepage: https://github.com/alexdobin/STAR
+      licence: ["MIT"]
+input:
+  - fasta:
+      type: file
+      description: Reference genome FASTA
+  - gtf:
+      type: file
+      description: Reference annotation GTF
+output:
+  - index:
+      type: directory
+      description: STAR genome index
+  - versions:
+      type: file
+      description: File containing software versions

@@ -1,0 +1,30 @@
+name: nf-core linting
+on:
+  push:
+    branches: [master, dev]
+  pull_request:
+  release:
+    types: [published]
+
+jobs:
+  EditorConfig:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm install -g editorconfig-checker
+      - run: editorconfig-checker -exclude README.md $(find . -type f | grep -v '.git/')
+
+  Nextflow_Linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out pipeline code
+        uses: actions/checkout@v4
+
+      - name: Install Nextflow
+        uses: nf-core/setup-nextflow@v2
+
+      - name: Run Nextflow linting (nf-core lint)
+        run: |
+          pip install nf-core
+          nf-core pipelines lint --dir ${GITHUB_WORKSPACE}
